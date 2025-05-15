@@ -680,7 +680,7 @@ handle_mode (server * serv, char *word[], char *word_eol[],
 	int len;
 	size_t arg;
 	size_t i, num_args;
-	int num_modes;
+	size_t num_modes;
 	size_t offset = 3;
 	int all_modes_have_args = FALSE;
 	int using_front_tab = FALSE;
@@ -918,8 +918,12 @@ inbound_005 (server * serv, char *word[], const message_tags_data *tags_data)
 			server_set_encoding (serv, "UTF-8");
 		} else if (g_strcmp0 (tokname, "NAMESX") == 0)
 		{
-									/* 12345678901234567 */
-			tcp_send_len (serv, "PROTOCTL NAMESX\r\n", 17);
+			if (tokadding && !serv->have_namesx)
+			{
+				/* only use protoctl if the server doesn't have the equivalent cap */
+				tcp_send_len (serv, "PROTOCTL NAMESX\r\n", 17);
+				serv->have_namesx = TRUE;
+			}
 		} else if (g_strcmp0 (tokname, "WHOX") == 0)
 		{
 			serv->have_whox = tokadding;

@@ -1,0 +1,3 @@
+Add-channel-context-menu-item-to-close-the-channel.patch
+Do-not-insert-an-extra-space-on-all-lines-when-loading-scrollback-with-colours.patch
+Automatically-reconnect-when-there-is-a-TLS-error.patch

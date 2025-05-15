@@ -8,7 +8,7 @@ git_checkout = $(shell if [ -d .git ]; then echo true ; else echo false ; fi)
 	dh $@
 
 patch:
-	$(info patching in the default serverâ€¦)
+	$(info patching in the default server鈥�)
 ifeq ($(shell dpkg-vendor --derives-from ubuntu && echo 1),1)
 	patch -p1 < debian/default_servers/ubuntu
 else
@@ -18,7 +18,7 @@ endif
 
 clean:
 ifneq ($(wildcard patch),)
-	$(info unpatching the default serverâ€¦)
+	$(info unpatching the default server鈥�)
 ifeq ($(shell dpkg-vendor --derives-from ubuntu && echo 1),1)
 	patch -p1 -R < debian/default_servers/ubuntu
 else
