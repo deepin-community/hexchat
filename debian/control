@@ -1,8 +1,9 @@
 Source: hexchat
 Section: net
 Priority: optional
-Maintainer: Cruise.zrz <Cruise.zrz@gmail.com>
-Build-Depends: debhelper-compat (= 13),
+Maintainer: Mattia Rizzolo <mattia@debian.org>
+Build-Depends:
+ debhelper-compat (= 13),
  gettext,
  iso-codes,
  libcanberra-dev,
@@ -15,12 +16,12 @@ Build-Depends: debhelper-compat (= 13),
  libssl-dev,
  meson,
  python3-cffi,
- python3-dev (>= 3.3),
+ python3-dev,
 Standards-Version: 4.6.0
-Homepage: <insert the upstream URL, if relevant>
-#Vcs-Browser: https://salsa.debian.org/debian/hexchat
-#Vcs-Git: https://salsa.debian.org/debian/hexchat.git
 Rules-Requires-Root: no
+Vcs-Git: https://salsa.debian.org/debian/hexchat.git
+Vcs-Browser: https://salsa.debian.org/debian/hexchat
+Homepage: https://hexchat.github.io
 
 Package: hexchat
 Architecture: any
